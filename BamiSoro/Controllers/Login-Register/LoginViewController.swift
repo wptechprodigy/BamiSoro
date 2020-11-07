@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = LoginConstant.loginTitle
@@ -72,6 +72,13 @@ class LoginViewController: UIViewController {
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(didTapRegister))
+        
+        loginButton.addTarget(self,
+                              action: #selector(didTapLoginButton),
+                              for: .touchUpInside)
+        
+        passwordField.delegate = self
+        emailField.delegate = self
         
         // Add subview
         view.addSubview(scrollView)
@@ -106,10 +113,39 @@ class LoginViewController: UIViewController {
                                    height: 52)
     }
     
+    @objc private func didTapLoginButton() {
+        guard let email = emailField.text, let password = passwordField.text,
+              !email.isEmpty, !password.isEmpty, password.count >= 6 else {
+            alertUserLoginError()
+            return
+        }
+    }
+    
+    func alertUserLoginError() {
+        let alert = UIAlertController(title: LoginConstant.loginErrorTitle,
+                                      message: LoginConstant.loginErrorMessage,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: LoginConstant.dismissError,
+                                      style: .cancel,
+                                      handler: nil))
+        present(alert, animated: true)
+    }
+    
     @objc private func didTapRegister() {
         let viewController = RegisterViewController()
         viewController.title = RegisterConstant.createAccount
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            didTapLoginButton()
+        }
+        return true
+    }
 }

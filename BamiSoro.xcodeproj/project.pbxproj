@@ -22,7 +22,7 @@
 		04C786A125569F05003203E2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786A025569F05003203E2 /* NewConversationViewController.swift */; };
 		04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786A525569F13003203E2 /* ProfileViewController.swift */; };
 		04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786AF2556A77F003203E2 /* BamiSoroContants.swift */; };
-		04C786BC2556B7CE003203E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786BB2556B7CE003203E2 /* Extensions.swift */; };
+		04C786BC2556B7CE003203E2 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786BB2556B7CE003203E2 /* Extension+UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		04C786A525569F13003203E2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04C786AF2556A77F003203E2 /* BamiSoroContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BamiSoroContants.swift; sourceTree = "<group>"; };
 		04C786B72556AEAB003203E2 /* BamiSoro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BamiSoro.entitlements; sourceTree = "<group>"; };
-		04C786BB2556B7CE003203E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		04C786BB2556B7CE003203E2 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 			children = (
 				04C786462555B37B003203E2 /* AppDelegate.swift */,
 				04C786482555B37B003203E2 /* SceneDelegate.swift */,
-				04C786BB2556B7CE003203E2 /* Extensions.swift */,
+				04C786C02556DA10003203E2 /* Extensions */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -216,6 +216,14 @@
 				04C786AF2556A77F003203E2 /* BamiSoroContants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		04C786C02556DA10003203E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				04C786BB2556B7CE003203E2 /* Extension+UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,7 +365,7 @@
 				04C786472555B37B003203E2 /* AppDelegate.swift in Sources */,
 				04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */,
 				04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */,
-				04C786BC2556B7CE003203E2 /* Extensions.swift in Sources */,
+				04C786BC2556B7CE003203E2 /* Extension+UIView.swift in Sources */,
 				04C7869425569E58003203E2 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
