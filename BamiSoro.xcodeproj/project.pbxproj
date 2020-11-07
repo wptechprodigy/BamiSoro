@@ -21,6 +21,8 @@
 		04C7869925569EAA003203E2 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7869825569EAA003203E2 /* VideoPlayerViewController.swift */; };
 		04C786A125569F05003203E2 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786A025569F05003203E2 /* NewConversationViewController.swift */; };
 		04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786A525569F13003203E2 /* ProfileViewController.swift */; };
+		04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786AF2556A77F003203E2 /* BamiSoroContants.swift */; };
+		04C786BC2556B7CE003203E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786BB2556B7CE003203E2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		04C7869825569EAA003203E2 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		04C786A025569F05003203E2 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
 		04C786A525569F13003203E2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		04C786AF2556A77F003203E2 /* BamiSoroContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BamiSoroContants.swift; sourceTree = "<group>"; };
+		04C786B72556AEAB003203E2 /* BamiSoro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BamiSoro.entitlements; sourceTree = "<group>"; };
+		04C786BB2556B7CE003203E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,8 @@
 		04C786452555B37B003203E2 /* BamiSoro */ = {
 			isa = PBXGroup;
 			children = (
+				04C786B72556AEAB003203E2 /* BamiSoro.entitlements */,
+				04C786AE2556A748003203E2 /* Constants */,
 				04C7868025569BB2003203E2 /* Resources */,
 				04C7867F25569BA8003203E2 /* Models */,
 				04C7867E25569B92003203E2 /* ViewModels */,
@@ -143,8 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				04C7864A2555B37B003203E2 /* ConversationsViewController.swift */,
-				04C7868825569D88003203E2 /* LoginViewController.swift */,
-				04C7868D25569DA3003203E2 /* RegisterViewController.swift */,
+				04C786AA2556A483003203E2 /* Login-Register */,
 				04C7869325569E58003203E2 /* PhotoViewerViewController.swift */,
 				04C7869825569EAA003203E2 /* VideoPlayerViewController.swift */,
 				04C786A025569F05003203E2 /* NewConversationViewController.swift */,
@@ -181,6 +187,7 @@
 			children = (
 				04C786462555B37B003203E2 /* AppDelegate.swift */,
 				04C786482555B37B003203E2 /* SceneDelegate.swift */,
+				04C786BB2556B7CE003203E2 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +199,23 @@
 				04C786512555B37E003203E2 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		04C786AA2556A483003203E2 /* Login-Register */ = {
+			isa = PBXGroup;
+			children = (
+				04C7868825569D88003203E2 /* LoginViewController.swift */,
+				04C7868D25569DA3003203E2 /* RegisterViewController.swift */,
+			);
+			path = "Login-Register";
+			sourceTree = "<group>";
+		};
+		04C786AE2556A748003203E2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				04C786AF2556A77F003203E2 /* BamiSoroContants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C7868925569D88003203E2 /* LoginViewController.swift in Sources */,
+				04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */,
 				04C7869925569EAA003203E2 /* VideoPlayerViewController.swift in Sources */,
 				04C786A125569F05003203E2 /* NewConversationViewController.swift in Sources */,
 				04C7868E25569DA3003203E2 /* RegisterViewController.swift in Sources */,
@@ -332,6 +357,7 @@
 				04C786472555B37B003203E2 /* AppDelegate.swift in Sources */,
 				04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */,
 				04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */,
+				04C786BC2556B7CE003203E2 /* Extensions.swift in Sources */,
 				04C7869425569E58003203E2 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BamiSoro/BamiSoro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZPB2R3KP8;
 				INFOPLIST_FILE = BamiSoro/Info.plist;
@@ -528,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BamiSoro/BamiSoro.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZPB2R3KP8;
 				INFOPLIST_FILE = BamiSoro/Info.plist;
