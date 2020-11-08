@@ -35,3 +35,11 @@ enum ErrorMessageConstant {
     static let registerErrorMessage = "Please fill all fields to create an account."
     static let dismissError = "Dismiss"
 }
+
+enum SelectProfilePictureConstant {
+    static let title = "Profile Picture"
+    static let profilePictureOptionMessage = "How would you like to add a profile picture?"
+    static let cancel = "Cancel"
+    static let choosePhoto = "Choose photo from device"
+    static let takePhoto = "Take photo"
+}
