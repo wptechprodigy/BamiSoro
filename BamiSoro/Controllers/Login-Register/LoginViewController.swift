@@ -114,6 +114,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapLoginButton() {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let email = emailField.text, let password = passwordField.text,
               !email.isEmpty, !password.isEmpty, password.count >= 6 else {
             alertUserLoginError()
@@ -122,10 +125,10 @@ class LoginViewController: UIViewController {
     }
     
     func alertUserLoginError() {
-        let alert = UIAlertController(title: LoginConstant.loginErrorTitle,
-                                      message: LoginConstant.loginErrorMessage,
+        let alert = UIAlertController(title: ErrorMessageConstant.loginRegistrationErrorTitle,
+                                      message: ErrorMessageConstant.loginErrorMessage,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: LoginConstant.dismissError,
+        alert.addAction(UIAlertAction(title: ErrorMessageConstant.dismissError,
                                       style: .cancel,
                                       handler: nil))
         present(alert, animated: true)

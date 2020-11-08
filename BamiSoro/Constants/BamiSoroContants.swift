@@ -10,9 +10,6 @@ import UIKit
 enum LoginConstant {
     static let isLoggedIn = "isLoggedIn"
     static let loginTitle = "Log In"
-    static let loginErrorTitle = "Whoops"
-    static let loginErrorMessage = "Please fill all fields to login."
-    static let dismissError = "Dismiss"
 }
 
 enum RegisterConstant {
@@ -25,6 +22,16 @@ enum ImageAssetsConstant {
 }
 
 enum PlaceholderConstant {
+    static let firstName = "First Name"
+    static let lastName = "Last Name"
     static let email = "Email Address..."
     static let password = "Password..."
+    static let profilePlaceHolder = "person"
+}
+
+enum ErrorMessageConstant {
+    static let loginRegistrationErrorTitle = "Whoops"
+    static let loginErrorMessage = "Please fill all fields to login."
+    static let registerErrorMessage = "Please fill all fields to create an account."
+    static let dismissError = "Dismiss"
 }
