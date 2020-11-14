@@ -34,6 +34,8 @@ enum ErrorMessageConstant {
     static let loginErrorMessage = "Please fill all fields to login."
     static let registerErrorMessage = "Please fill all fields to create an account."
     static let dismissError = "Dismiss"
+    static let createUserError = "Error creating users!"
+    static let loginUserErrorMessage = "Failed to log in user with email:"
 }
 
 enum SelectProfilePictureConstant {

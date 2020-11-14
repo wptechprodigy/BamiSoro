@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0428BCB2255EA1C500921626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0428BCB1255EA1C500921626 /* GoogleService-Info.plist */; };
 		04C786472555B37B003203E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786462555B37B003203E2 /* AppDelegate.swift */; };
 		04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786482555B37B003203E2 /* SceneDelegate.swift */; };
 		04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7864A2555B37B003203E2 /* ConversationsViewController.swift */; };
@@ -23,6 +24,9 @@
 		04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786A525569F13003203E2 /* ProfileViewController.swift */; };
 		04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786AF2556A77F003203E2 /* BamiSoroContants.swift */; };
 		04C786BC2556B7CE003203E2 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786BB2556B7CE003203E2 /* Extension+UIView.swift */; };
+		C865E75528E516539B4BD89B /* Pods_BamiSoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B06E15D9222ED11EFE664C3 /* Pods_BamiSoro.framework */; };
+		D9FE03F618641E7659D29EC8 /* Pods_BamiSoro_BamiSoroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C4829B2898986C9CED87B2 /* Pods_BamiSoro_BamiSoroUITests.framework */; };
+		F3E76922C64C7A571F6ACE2D /* Pods_BamiSoroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B719C4591D69D89DEBDD01 /* Pods_BamiSoroTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01FBA96F6E74DBA37CA0658E /* Pods-BamiSoro-BamiSoroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoro-BamiSoroUITests.release.xcconfig"; path = "Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0428BCB1255EA1C500921626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04C786432555B37B003203E2 /* BamiSoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BamiSoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C786462555B37B003203E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C786482555B37B003203E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +72,14 @@
 		04C786AF2556A77F003203E2 /* BamiSoroContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BamiSoroContants.swift; sourceTree = "<group>"; };
 		04C786B72556AEAB003203E2 /* BamiSoro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BamiSoro.entitlements; sourceTree = "<group>"; };
 		04C786BB2556B7CE003203E2 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		2B06E15D9222ED11EFE664C3 /* Pods_BamiSoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BamiSoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C4829B2898986C9CED87B2 /* Pods_BamiSoro_BamiSoroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BamiSoro_BamiSoroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65E014F1F1FC6242489E0BA5 /* Pods-BamiSoroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoroTests.debug.xcconfig"; path = "Target Support Files/Pods-BamiSoroTests/Pods-BamiSoroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A5E7ED056F502C508E03DB3E /* Pods-BamiSoro-BamiSoroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoro-BamiSoroUITests.debug.xcconfig"; path = "Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C28567ACFE0459DA82AF8BB1 /* Pods-BamiSoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoro.debug.xcconfig"; path = "Target Support Files/Pods-BamiSoro/Pods-BamiSoro.debug.xcconfig"; sourceTree = "<group>"; };
+		CBA71E0BB9A2B5402E2151E3 /* Pods-BamiSoroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoroTests.release.xcconfig"; path = "Target Support Files/Pods-BamiSoroTests/Pods-BamiSoroTests.release.xcconfig"; sourceTree = "<group>"; };
+		E4B719C4591D69D89DEBDD01 /* Pods_BamiSoroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BamiSoroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCCF8884F4ABD35204308FD8 /* Pods-BamiSoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoro.release.xcconfig"; path = "Target Support Files/Pods-BamiSoro/Pods-BamiSoro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C865E75528E516539B4BD89B /* Pods_BamiSoro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3E76922C64C7A571F6ACE2D /* Pods_BamiSoroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FE03F618641E7659D29EC8 /* Pods_BamiSoro_BamiSoroUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +117,8 @@
 				04C7865C2555B37E003203E2 /* BamiSoroTests */,
 				04C786672555B37E003203E2 /* BamiSoroUITests */,
 				04C786442555B37B003203E2 /* Products */,
+				4879F593A5DFA22F1FA547AC /* Pods */,
+				8198AF934D36F8661A91BF21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +143,7 @@
 				04C7867D25569B89003203E2 /* Views */,
 				04C7867C25569B7F003203E2 /* Controllers */,
 				04C786542555B37E003203E2 /* Info.plist */,
+				0428BCB1255EA1C500921626 /* GoogleService-Info.plist */,
 			);
 			path = BamiSoro;
 			sourceTree = "<group>";
@@ -226,6 +246,29 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		4879F593A5DFA22F1FA547AC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C28567ACFE0459DA82AF8BB1 /* Pods-BamiSoro.debug.xcconfig */,
+				FCCF8884F4ABD35204308FD8 /* Pods-BamiSoro.release.xcconfig */,
+				A5E7ED056F502C508E03DB3E /* Pods-BamiSoro-BamiSoroUITests.debug.xcconfig */,
+				01FBA96F6E74DBA37CA0658E /* Pods-BamiSoro-BamiSoroUITests.release.xcconfig */,
+				65E014F1F1FC6242489E0BA5 /* Pods-BamiSoroTests.debug.xcconfig */,
+				CBA71E0BB9A2B5402E2151E3 /* Pods-BamiSoroTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8198AF934D36F8661A91BF21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B06E15D9222ED11EFE664C3 /* Pods_BamiSoro.framework */,
+				40C4829B2898986C9CED87B2 /* Pods_BamiSoro_BamiSoroUITests.framework */,
+				E4B719C4591D69D89DEBDD01 /* Pods_BamiSoroTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C7866D2555B37E003203E2 /* Build configuration list for PBXNativeTarget "BamiSoro" */;
 			buildPhases = (
+				8AD3E89675924F31D21C12A4 /* [CP] Check Pods Manifest.lock */,
 				04C7863F2555B37B003203E2 /* Sources */,
 				04C786402555B37B003203E2 /* Frameworks */,
 				04C786412555B37B003203E2 /* Resources */,
+				6FDEE256F5597D9FBF6CBDE9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -250,6 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C786702555B37E003203E2 /* Build configuration list for PBXNativeTarget "BamiSoroTests" */;
 			buildPhases = (
+				406F9691957CC603971A515B /* [CP] Check Pods Manifest.lock */,
 				04C786552555B37E003203E2 /* Sources */,
 				04C786562555B37E003203E2 /* Frameworks */,
 				04C786572555B37E003203E2 /* Resources */,
@@ -268,9 +314,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C786732555B37E003203E2 /* Build configuration list for PBXNativeTarget "BamiSoroUITests" */;
 			buildPhases = (
+				C2032D5F7ED784CBBAF5CFA1 /* [CP] Check Pods Manifest.lock */,
 				04C786602555B37E003203E2 /* Sources */,
 				04C786612555B37E003203E2 /* Frameworks */,
 				04C786622555B37E003203E2 /* Resources */,
+				2228C8C4E3CAF34579B4A70E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C786532555B37E003203E2 /* LaunchScreen.storyboard in Resources */,
+				0428BCB2255EA1C500921626 /* GoogleService-Info.plist in Resources */,
 				04C786502555B37E003203E2 /* Assets.xcassets in Resources */,
 				04C7864E2555B37B003203E2 /* Main.storyboard in Resources */,
 			);
@@ -350,6 +399,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2228C8C4E3CAF34579B4A70E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		406F9691957CC603971A515B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BamiSoroTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FDEE256F5597D9FBF6CBDE9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro/Pods-BamiSoro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro/Pods-BamiSoro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BamiSoro/Pods-BamiSoro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AD3E89675924F31D21C12A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BamiSoro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2032D5F7ED784CBBAF5CFA1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BamiSoro-BamiSoroUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04C7863F2555B37B003203E2 /* Sources */ = {
@@ -539,7 +691,9 @@
 		};
 		04C7866E2555B37E003203E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C28567ACFE0459DA82AF8BB1 /* Pods-BamiSoro.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BamiSoro/BamiSoro.entitlements;
@@ -555,12 +709,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(Inherited)";
 			};
 			name = Debug;
 		};
 		04C7866F2555B37E003203E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCCF8884F4ABD35204308FD8 /* Pods-BamiSoro.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BamiSoro/BamiSoro.entitlements;
@@ -576,11 +733,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(Inherited)";
 			};
 			name = Release;
 		};
 		04C786712555B37E003203E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65E014F1F1FC6242489E0BA5 /* Pods-BamiSoroTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -603,6 +762,7 @@
 		};
 		04C786722555B37E003203E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBA71E0BB9A2B5402E2151E3 /* Pods-BamiSoroTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -625,6 +785,7 @@
 		};
 		04C786742555B37E003203E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5E7ED056F502C508E03DB3E /* Pods-BamiSoro-BamiSoroUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -645,6 +806,7 @@
 		};
 		04C786752555B37E003203E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01FBA96F6E74DBA37CA0658E /* Pods-BamiSoro-BamiSoroUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
