@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     private let scrollView: UIScrollView = {
@@ -117,10 +118,23 @@ class LoginViewController: UIViewController {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         
-        guard let email = emailField.text, let password = passwordField.text,
-              !email.isEmpty, !password.isEmpty, password.count >= 6 else {
+        guard let email = emailField.text,
+              let password = passwordField.text,
+              !email.isEmpty,
+              !password.isEmpty,
+              password.count >= 6 else {
             alertUserLoginError()
             return
+        }
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+            guard let result = authDataResult, error == nil else {
+                print(ErrorMessageConstant.loginUserErrorMessage + " \(email)")
+                return
+            }
+            
+            let user = result.user
+            print("Logged in user: \(user)")
         }
     }
     

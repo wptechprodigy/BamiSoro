@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>31161925367-ce385j3t14jm1evaeubikafps6ivqfak.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.31161925367-ce385j3t14jm1evaeubikafps6ivqfak</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDGWphOrqYo3PFwKt3_aD9rzciG69HD5uU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>31161925367</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.waheedcodes.BamiSoro</string>
+	<key>PROJECT_ID</key>
+	<string>bamisoro-73609</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bamisoro-73609.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:31161925367:ios:b1eea03cfaaf142c281df2</string>
+	<key>DATABASE_URL</key>
+	<string>https://bamisoro-73609.firebaseio.com</string>
+</dict>
+</plist>

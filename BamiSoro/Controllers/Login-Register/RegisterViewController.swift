@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     private let scrollView: UIScrollView = {
@@ -103,7 +104,7 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = .white
         
         registerButton.addTarget(self,
-                                 action: #selector(didTapLoginButton),
+                                 action: #selector(didTapCreateAccountButton),
                                  for: .touchUpInside)
         
         passwordField.delegate = self
@@ -168,7 +169,7 @@ class RegisterViewController: UIViewController {
         presentPhotoActionSheet()
     }
     
-    @objc private func didTapLoginButton() {
+    @objc private func didTapCreateAccountButton() {
         firstNameField.resignFirstResponder()
         lastNameField.resignFirstResponder()
         emailField.resignFirstResponder()
@@ -185,6 +186,16 @@ class RegisterViewController: UIViewController {
               password.count >= 6 else {
             alertUserLoginError()
             return
+        }
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard let result = authResult, error == nil else {
+                print(ErrorMessageConstant.createUserError)
+                return
+            }
+            
+            let user = result.user
+            print("Created user: \(user)")
         }
     }
     
@@ -205,7 +216,7 @@ extension RegisterViewController: UITextFieldDelegate {
         if textField == emailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
-            didTapLoginButton()
+            didTapCreateAccountButton()
         }
         return true
     }
