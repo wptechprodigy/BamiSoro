@@ -127,7 +127,11 @@ class LoginViewController: UIViewController {
             return
         }
         
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] (authDataResult, error) in
+            guard let strongSelf = self else {
+                return
+            }
+            
             guard let result = authDataResult, error == nil else {
                 print(ErrorMessageConstant.loginUserErrorMessage + " \(email)")
                 return
@@ -135,6 +139,7 @@ class LoginViewController: UIViewController {
             
             let user = result.user
             print("Logged in user: \(user)")
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
     
