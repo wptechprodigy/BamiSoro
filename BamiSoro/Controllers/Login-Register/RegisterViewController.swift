@@ -173,7 +173,7 @@ class RegisterViewController: UIViewController {
         firstNameField.resignFirstResponder()
         lastNameField.resignFirstResponder()
         emailField.resignFirstResponder()
-        //        passwordField.resignFirstResponder()
+        passwordField.resignFirstResponder()
         
         guard let firstName = firstNameField.text,
               let lastName = lastNameField.text,
@@ -194,7 +194,7 @@ class RegisterViewController: UIViewController {
             }
             
             guard !exists else {
-                // print an error i.e. the condition is true
+                // print an error i.e. user exists
                 strongSelf.alertUserLoginError(message: ErrorMessageConstant.userAlreadyExistsErrorMessage)
                 return
             }

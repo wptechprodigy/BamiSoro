@@ -17,12 +17,16 @@ final class DatabaseManager {
 
 // MARK: - Database Management
 
+/// Database manager (singleton: - for easy write and access)
 extension DatabaseManager {
     
     /// Check if user with email already exists
     public func userExists(with email: String,
                            completion: @escaping ((Bool) -> Void)) {
-        database.child(email).observeSingleEvent(of: .value) { (snapshot) in
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        
+        database.child(safeEmail).observeSingleEvent(of: .value) { (snapshot) in
             guard snapshot.value as? String != nil else {
                 completion(false)
                 return
@@ -35,7 +39,7 @@ extension DatabaseManager {
     
     /// Inserts a new user into the database
     public func insertUser(with user: BamiSoroUser) {
-        database.child(user.email).setValue([
+        database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
         ])
@@ -48,5 +52,11 @@ struct BamiSoroUser {
     let firstName: String
     let lastName: String
     let email: String
-    // let profilePicture: String
+    
+    var safeEmail: String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
+    
 }
