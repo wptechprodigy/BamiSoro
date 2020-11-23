@@ -26,7 +26,7 @@ enum PlaceholderConstant {
     static let lastName = "Last Name"
     static let email = "Email Address..."
     static let password = "Password..."
-    static let profilePlaceHolder = "person"
+    static let profilePlaceHolder = "person.circle"
 }
 
 enum ErrorMessageConstant {
@@ -36,6 +36,7 @@ enum ErrorMessageConstant {
     static let dismissError = "Dismiss"
     static let createUserError = "Error creating users!"
     static let loginUserErrorMessage = "Failed to log in user with email:"
+    static let userAlreadyExistsErrorMessage = "User with the provided email address already exists."
 }
 
 enum SelectProfilePictureConstant {

@@ -188,20 +188,36 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            guard let result = authResult, error == nil else {
-                print(ErrorMessageConstant.createUserError)
+        DatabaseManager.shared.userExists(with: email) { [weak self] (exists) in
+            guard let strongSelf = self else {
                 return
             }
             
-            let user = result.user
-            print("Created user: \(user)")
+            guard !exists else {
+                // print an error i.e. user exists
+                strongSelf.alertUserLoginError(message: ErrorMessageConstant.userAlreadyExistsErrorMessage)
+                return
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email,
+                                                password: password) { (authResult, error) in
+                guard authResult != nil, error == nil else {
+                    print(ErrorMessageConstant.createUserError)
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: BamiSoroUser(firstName: firstName,
+                                                                     lastName: lastName,
+                                                                     email: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
-    func alertUserLoginError() {
+    func alertUserLoginError(message: String = ErrorMessageConstant.registerErrorMessage) {
         let alert = UIAlertController(title: ErrorMessageConstant.loginRegistrationErrorTitle,
-                                      message: ErrorMessageConstant.registerErrorMessage,
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: ErrorMessageConstant.dismissError,
                                       style: .cancel,
