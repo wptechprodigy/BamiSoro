@@ -12,6 +12,16 @@ enum LoginConstant {
     static let loginTitle = "Log In"
 }
 
+enum LogoutActionSheetConstant {
+    static let title = ""
+    static let message = ""
+}
+
+enum LogoutOptionConstant {
+    static let yesLogout = "Log out"
+    static let noCancel = "Cancel"
+}
+
 enum RegisterConstant {
     static let register = "Register"
     static let createAccount = "Create Account"
@@ -45,4 +55,8 @@ enum SelectProfilePictureConstant {
     static let cancel = "Cancel"
     static let choosePhoto = "Choose photo from device"
     static let takePhoto = "Take photo"
+}
+
+enum FBGraphPath {
+    static let graphPath = "me"
 }

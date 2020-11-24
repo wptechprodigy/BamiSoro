@@ -12,7 +12,6 @@ class ConversationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,10 +22,8 @@ class ConversationsViewController: UIViewController {
      
     private func validateAuth() {
         if FirebaseAuth.Auth.auth().currentUser == nil {
-            let viewController = LoginViewController()
-            let navigation = UINavigationController(rootViewController: viewController)
-            navigation.modalPresentationStyle = .fullScreen
-            present(navigation, animated: false)
+            let loginNavigation = presentLoginScreen()
+            present(loginNavigation, animated: true)
         }
     }
 
