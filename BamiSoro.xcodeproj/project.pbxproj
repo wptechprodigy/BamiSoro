@@ -25,6 +25,7 @@
 		04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786A525569F13003203E2 /* ProfileViewController.swift */; };
 		04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786AF2556A77F003203E2 /* BamiSoroContants.swift */; };
 		04C786BC2556B7CE003203E2 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786BB2556B7CE003203E2 /* Extension+UIView.swift */; };
+		04DBBE9F256C2DA40079E5E0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DBBE9E256C2DA40079E5E0 /* Helpers.swift */; };
 		C865E75528E516539B4BD89B /* Pods_BamiSoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B06E15D9222ED11EFE664C3 /* Pods_BamiSoro.framework */; };
 		D9FE03F618641E7659D29EC8 /* Pods_BamiSoro_BamiSoroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C4829B2898986C9CED87B2 /* Pods_BamiSoro_BamiSoroUITests.framework */; };
 		F3E76922C64C7A571F6ACE2D /* Pods_BamiSoroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B719C4591D69D89DEBDD01 /* Pods_BamiSoroTests.framework */; };
@@ -74,6 +75,7 @@
 		04C786AF2556A77F003203E2 /* BamiSoroContants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BamiSoroContants.swift; sourceTree = "<group>"; };
 		04C786B72556AEAB003203E2 /* BamiSoro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BamiSoro.entitlements; sourceTree = "<group>"; };
 		04C786BB2556B7CE003203E2 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		04DBBE9E256C2DA40079E5E0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		2B06E15D9222ED11EFE664C3 /* Pods_BamiSoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BamiSoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C4829B2898986C9CED87B2 /* Pods_BamiSoro_BamiSoroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BamiSoro_BamiSoroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E014F1F1FC6242489E0BA5 /* Pods-BamiSoroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoroTests.debug.xcconfig"; path = "Target Support Files/Pods-BamiSoroTests/Pods-BamiSoroTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				04C786BB2556B7CE003203E2 /* Extension+UIView.swift */,
+				04DBBE9E256C2DA40079E5E0 /* Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */,
 				0428BD6A2560357A00921626 /* DatabaseManager.swift in Sources */,
 				04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */,
+				04DBBE9F256C2DA40079E5E0 /* Helpers.swift in Sources */,
 				04C786BC2556B7CE003203E2 /* Extension+UIView.swift in Sources */,
 				04C7869425569E58003203E2 /* PhotoViewerViewController.swift in Sources */,
 			);
