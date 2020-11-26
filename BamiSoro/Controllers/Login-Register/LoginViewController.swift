@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     private let scrollView: UIScrollView = {
@@ -31,7 +32,8 @@ class LoginViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = PlaceholderConstant.email
+        field.textColor = .darkGray
+        field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.email)
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
@@ -46,11 +48,12 @@ class LoginViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = PlaceholderConstant.password
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
         field.isSecureTextEntry = true
+        field.textColor = .darkGray
+        field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.password)
         return field
     }()
     
@@ -65,14 +68,17 @@ class LoginViewController: UIViewController {
         return button
     }()
     
-    private let fbLoginButton:FBLoginButton = {
+    private let fbLoginButton: FBLoginButton = {
         let button = FBLoginButton()
         button.permissions = ["email" ,"public_profile"]
         return button
     }()
     
+    private let googleLoginButton = GIDSignInButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         title = LoginConstant.loginTitle
         view.backgroundColor = .white
         
@@ -97,6 +103,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(fbLoginButton)
+        scrollView.addSubview(googleLoginButton)
     }
     
     override func viewDidLayoutSubviews() {
@@ -109,18 +116,18 @@ class LoginViewController: UIViewController {
                                  height: size)
         
         emailField.frame = CGRect(x: 30,
-                                  y: imageView.bottom + 40,
-                                  width: scrollView.width - 60,
+                                  y: (imageView.bottom + 40),
+                                  width: (scrollView.width - 60),
                                   height: 52)
         
         passwordField.frame = CGRect(x: 30,
-                                     y: emailField.bottom + 10,
-                                     width: scrollView.width - 60,
+                                     y: (emailField.bottom + 10),
+                                     width: (scrollView.width - 60),
                                      height: 52)
         
         loginButton.frame = CGRect(x: 30,
-                                   y: passwordField.bottom + 20,
-                                   width: scrollView.width - 60,
+                                   y: (passwordField.bottom + 10),
+                                   width: (scrollView.width - 60),
                                    height: 52)
         
         fbLoginButton.frame = CGRect(x: 30,
@@ -128,7 +135,10 @@ class LoginViewController: UIViewController {
                                      width: (scrollView.width - 60),
                                      height: 52)
         
-        fbLoginButton.frame.origin.y = fbLoginButton.bottom + 20
+        googleLoginButton.frame = CGRect(x: 27,
+                                         y: (fbLoginButton.bottom + 10),
+                                         width: (scrollView.width - 56),
+                                         height: 52)
     }
     
     @objc private func didTapLoginButton() {
