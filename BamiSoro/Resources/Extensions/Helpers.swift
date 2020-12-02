@@ -13,3 +13,10 @@ func presentLoginScreen() -> UINavigationController {
     navigation.modalPresentationStyle = .fullScreen
     return navigation
 }
+
+func setPlaceHolder(with text: String) -> NSAttributedString {
+    return NSAttributedString(string: text,
+                              attributes: [
+                                NSAttributedString.Key.foregroundColor: UIColor.systemGray2
+                              ])
+}

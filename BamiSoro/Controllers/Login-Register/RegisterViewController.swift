@@ -34,10 +34,11 @@ class RegisterViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = PlaceholderConstant.firstName
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
+        field.textColor = .darkGray
+        field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.firstName)
         return field
     }()
     
@@ -49,10 +50,11 @@ class RegisterViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = PlaceholderConstant.lastName
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
+        field.textColor = .darkGray
+        field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.lastName)
         return field
     }()
     
@@ -64,10 +66,11 @@ class RegisterViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = PlaceholderConstant.email
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
+        field.textColor = .darkGray
+        field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.email)
         return field
     }()
     
@@ -79,11 +82,12 @@ class RegisterViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = PlaceholderConstant.password
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
         field.isSecureTextEntry = true
+        field.textColor = .darkGray
+        field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.password)
         return field
     }()
     

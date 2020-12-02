@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0428BCB2255EA1C500921626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0428BCB1255EA1C500921626 /* GoogleService-Info.plist */; };
 		0428BD6A2560357A00921626 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428BD692560357A00921626 /* DatabaseManager.swift */; };
+		0452258F257807BC00B6D33F /* Extension+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0452258E257807BC00B6D33F /* Extension+Notification.swift */; };
 		04C786472555B37B003203E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786462555B37B003203E2 /* AppDelegate.swift */; };
 		04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786482555B37B003203E2 /* SceneDelegate.swift */; };
 		04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7864A2555B37B003203E2 /* ConversationsViewController.swift */; };
@@ -52,6 +53,7 @@
 		01FBA96F6E74DBA37CA0658E /* Pods-BamiSoro-BamiSoroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoro-BamiSoroUITests.release.xcconfig"; path = "Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0428BCB1255EA1C500921626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0428BD692560357A00921626 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		0452258E257807BC00B6D33F /* Extension+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Notification.swift"; sourceTree = "<group>"; };
 		04C786432555B37B003203E2 /* BamiSoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BamiSoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C786462555B37B003203E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C786482555B37B003203E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				04C786BB2556B7CE003203E2 /* Extension+UIView.swift */,
 				04DBBE9E256C2DA40079E5E0 /* Helpers.swift */,
+				0452258E257807BC00B6D33F /* Extension+Notification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				04C786402555B37B003203E2 /* Frameworks */,
 				04C786412555B37B003203E2 /* Resources */,
 				6FDEE256F5597D9FBF6CBDE9 /* [CP] Embed Pods Frameworks */,
+				B8A53EDEFAB5FA3601E992CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,6 +337,7 @@
 				04C786612555B37E003203E2 /* Frameworks */,
 				04C786622555B37E003203E2 /* Resources */,
 				2228C8C4E3CAF34579B4A70E /* [CP] Embed Pods Frameworks */,
+				2FF322C3F3D82FEF163C8A48 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -432,6 +437,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2FF322C3F3D82FEF163C8A48 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		406F9691957CC603971A515B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,6 +515,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B8A53EDEFAB5FA3601E992CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro/Pods-BamiSoro-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BamiSoro/Pods-BamiSoro-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BamiSoro/Pods-BamiSoro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C2032D5F7ED784CBBAF5CFA1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,6 +565,7 @@
 				04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */,
 				04C7869925569EAA003203E2 /* VideoPlayerViewController.swift in Sources */,
 				04C786A125569F05003203E2 /* NewConversationViewController.swift in Sources */,
+				0452258F257807BC00B6D33F /* Extension+Notification.swift in Sources */,
 				04C7868E25569DA3003203E2 /* RegisterViewController.swift in Sources */,
 				04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */,
 				04C786472555B37B003203E2 /* AppDelegate.swift in Sources */,
