@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0428BCB2255EA1C500921626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0428BCB1255EA1C500921626 /* GoogleService-Info.plist */; };
 		0428BD6A2560357A00921626 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428BD692560357A00921626 /* DatabaseManager.swift */; };
+		0452258F257807BC00B6D33F /* Extension+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0452258E257807BC00B6D33F /* Extension+Notification.swift */; };
 		04C786472555B37B003203E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786462555B37B003203E2 /* AppDelegate.swift */; };
 		04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786482555B37B003203E2 /* SceneDelegate.swift */; };
 		04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7864A2555B37B003203E2 /* ConversationsViewController.swift */; };
@@ -52,6 +53,7 @@
 		01FBA96F6E74DBA37CA0658E /* Pods-BamiSoro-BamiSoroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamiSoro-BamiSoroUITests.release.xcconfig"; path = "Target Support Files/Pods-BamiSoro-BamiSoroUITests/Pods-BamiSoro-BamiSoroUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0428BCB1255EA1C500921626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0428BD692560357A00921626 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		0452258E257807BC00B6D33F /* Extension+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Notification.swift"; sourceTree = "<group>"; };
 		04C786432555B37B003203E2 /* BamiSoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BamiSoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C786462555B37B003203E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C786482555B37B003203E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				04C786BB2556B7CE003203E2 /* Extension+UIView.swift */,
 				04DBBE9E256C2DA40079E5E0 /* Helpers.swift */,
+				0452258E257807BC00B6D33F /* Extension+Notification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				04C786B02556A77F003203E2 /* BamiSoroContants.swift in Sources */,
 				04C7869925569EAA003203E2 /* VideoPlayerViewController.swift in Sources */,
 				04C786A125569F05003203E2 /* NewConversationViewController.swift in Sources */,
+				0452258F257807BC00B6D33F /* Extension+Notification.swift in Sources */,
 				04C7868E25569DA3003203E2 /* RegisterViewController.swift in Sources */,
 				04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */,
 				04C786472555B37B003203E2 /* AppDelegate.swift in Sources */,

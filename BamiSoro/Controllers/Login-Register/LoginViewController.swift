@@ -76,8 +76,21 @@ class LoginViewController: UIViewController {
     
     private let googleLoginButton = GIDSignInButton()
     
+    private var loginObserver: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Helps handle dismissing the google login since it's done in the appdelegate
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLoginNotification,
+                                                               object: nil,
+                                                               queue: .main,
+                                                               using: { [weak self] (_) in
+                                                                guard let strongSelf = self else { return }
+                                                                
+                                                                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                                                               })
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         title = LoginConstant.loginTitle
         view.backgroundColor = .white
@@ -104,6 +117,13 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(loginButton)
         scrollView.addSubview(fbLoginButton)
         scrollView.addSubview(googleLoginButton)
+    }
+    
+    // deinitializes the login observer to preempt memory leak
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     override func viewDidLayoutSubviews() {

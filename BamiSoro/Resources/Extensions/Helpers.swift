@@ -17,6 +17,6 @@ func presentLoginScreen() -> UINavigationController {
 func setPlaceHolder(with text: String) -> NSAttributedString {
     return NSAttributedString(string: text,
                               attributes: [
-                                 NSAttributedString.Key.foregroundColor: UIColor.systemGray
+                                NSAttributedString.Key.foregroundColor: UIColor.systemGray2
                               ])
 }
