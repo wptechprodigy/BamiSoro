@@ -60,7 +60,14 @@ class ConversationsViewController: UIViewController {
 }
 
 extension ConversationsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let chatViewController = ChatViewController()
+        chatViewController.title = "Omotolani Shodunke"
+        chatViewController.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(chatViewController, animated: true)
+    }
 }
 
 extension ConversationsViewController: UITableViewDataSource {
