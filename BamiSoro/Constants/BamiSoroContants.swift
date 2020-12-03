@@ -60,3 +60,7 @@ enum SelectProfilePictureConstant {
 enum FBGraphPath {
     static let graphPath = "me"
 }
+
+enum ConversationsConstant {
+    static let noConverstations = "No Conversations!"
+}
