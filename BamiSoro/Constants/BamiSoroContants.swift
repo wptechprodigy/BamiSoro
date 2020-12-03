@@ -60,3 +60,13 @@ enum SelectProfilePictureConstant {
 enum FBGraphPath {
     static let graphPath = "me"
 }
+
+enum ConversationsConstant {
+    static let noConverstations = "No Conversations!"
+}
+
+enum SearchBarConstant {
+    static let placeHolder = "Search..."
+    static let cancelSearch = "Cancel"
+    static let noSearchResult = "Contact not found!"
+}
