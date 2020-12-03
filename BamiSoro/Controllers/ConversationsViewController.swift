@@ -32,12 +32,18 @@ class ConversationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        view.addSubview(noConversationsLabel)
         setupTableView()
+        fetchConversations()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         validateAuth()
     }
      
@@ -49,7 +55,7 @@ class ConversationsViewController: UIViewController {
     }
     
     private func fetchConversations() {
-        
+        tableView.isHidden = false
     }
     
     private func setupTableView() {
@@ -62,7 +68,7 @@ class ConversationsViewController: UIViewController {
 extension ConversationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         let chatViewController = ChatViewController()
         chatViewController.title = "Omotolani Shodunke"
         chatViewController.navigationItem.largeTitleDisplayMode = .never

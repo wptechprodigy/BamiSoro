@@ -7,8 +7,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
+    private let spinner = JGProgressHUD(style: .dark)
+
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -76,6 +79,7 @@ class RegisterViewController: UIViewController {
     
     private let passwordField: UITextField = {
         let field = UITextField()
+        field.isSecureTextEntry = true
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
         field.returnKeyType = .done
@@ -85,7 +89,6 @@ class RegisterViewController: UIViewController {
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .white
-        field.isSecureTextEntry = true
         field.textColor = .darkGray
         field.attributedPlaceholder = setPlaceHolder(with: PlaceholderConstant.password)
         return field
@@ -192,9 +195,15 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        spinner.show(in: view)
+        
         DatabaseManager.shared.userExists(with: email) { [weak self] (exists) in
             guard let strongSelf = self else {
                 return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
             }
             
             guard !exists else {
