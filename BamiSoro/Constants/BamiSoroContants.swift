@@ -68,4 +68,5 @@ enum ConversationsConstant {
 enum SearchBarConstant {
     static let placeHolder = "Search..."
     static let cancelSearch = "Cancel"
+    static let noSearchResult = "Contact not found!"
 }
