@@ -31,6 +31,9 @@ class ConversationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
+                                                            target: self,
+                                                            action: #selector(didTapComposeNewChat))
         view.addSubview(tableView)
         view.addSubview(noConversationsLabel)
         setupTableView()
@@ -45,6 +48,12 @@ class ConversationsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         validateAuth()
+    }
+    
+    @objc private func didTapComposeNewChat() {
+        let newConversationViewController = NewConversationViewController()
+        let navigationController = UINavigationController(rootViewController: newConversationViewController)
+        present(navigationController, animated: true, completion: nil)
     }
      
     private func validateAuth() {
