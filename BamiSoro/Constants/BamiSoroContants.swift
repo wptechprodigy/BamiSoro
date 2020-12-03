@@ -64,3 +64,8 @@ enum FBGraphPath {
 enum ConversationsConstant {
     static let noConverstations = "No Conversations!"
 }
+
+enum SearchBarConstant {
+    static let placeHolder = "Search..."
+    static let cancelSearch = "Cancel"
+}
