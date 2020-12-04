@@ -24,26 +24,26 @@ extension StorageManager {
                                      completion: @escaping uploadPictureCompletion) {
         storage.child("images/\(fileName)").putData(data,
                                                     metadata: nil,
-                                                    completion: { (StorageMetadata, error) in
+                                                    completion: { (storageMetadata, error) in
                                                         guard error == nil else {
                                                             // Failed
                                                             print("Failed to upload data to Firbase Storage for picture.")
                                                             completion(.failure(StorageErrors.failedToUpload))
                                                             return
                                                         }
+                                                        
+                                                        self.storage.child("images/\(fileName)").downloadURL(completion: { (url, error) in
+                                                            guard let url = url else {
+                                                                print("Failed to get picture download url from Firebase")
+                                                                completion(.failure(StorageErrors.failedToGetPictureDownloadURL))
+                                                                return
+                                                            }
+                                                            
+                                                            let urlString = url.absoluteString
+                                                            print("Profile picture download url: \(urlString)")
+                                                            completion(.success(urlString))
+                                                        })
                                                     })
-        
-        self.storage.child("images/\(fileName)").downloadURL(completion: { (url, error) in
-            guard let url = url else {
-                print("Failed to get picture download url from Firebase")
-                completion(.failure(StorageErrors.failedToGetPictureDownloadURL))
-                return
-            }
-            
-            let urlString = url.absoluteString
-            print("Profile picture download url: \(urlString)")
-            completion(.success(urlString))
-        })
     }
     
     public enum StorageErrors: Error {

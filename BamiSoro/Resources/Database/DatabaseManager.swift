@@ -38,11 +38,19 @@ extension DatabaseManager {
     }
     
     /// Inserts a new user into the database
-    public func insertUser(with user: BamiSoroUser) {
+    public func insertUser(with user: BamiSoroUser, completion: @escaping (Bool) -> Void) {
         database.child(user.safeEmail).setValue([
             "first_name": user.firstName,
             "last_name": user.lastName
-        ])
+        ], withCompletionBlock: { error, _ in
+            guard error == nil else {
+                print("Failed to weite to the database")
+                completion(false)
+                return
+            }
+            
+            completion(true)
+        })
     }
 }
 
@@ -59,4 +67,7 @@ struct BamiSoroUser {
         return safeEmail
     }
     
+    var profilePictureFileName: String {
+        return "\(safeEmail)_profile_picture.png"
+    }
 }

@@ -268,9 +268,16 @@ extension LoginViewController: LoginButtonDelegate {
             
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
-                    DatabaseManager.shared.insertUser(with: BamiSoroUser(firstName: firstName,
-                                                                         lastName: lastName,
-                                                                         email: email))
+                    let bamiSoroUser = BamiSoroUser(firstName: firstName,
+                                            lastName: lastName,
+                                            email: email)
+                    
+                    DatabaseManager.shared.insertUser(with: bamiSoroUser,
+                                                      completion: { success in
+                                                        if success {
+                                                            // Upload picture to Firebase
+                                                        }
+                                                      })
                 }
             })
         }
