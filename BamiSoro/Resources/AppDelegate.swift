@@ -62,22 +62,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         // Does a user exists with the email?
-        DatabaseManager.shared.userExists(with: email,
-                                          completion: { exists in
-                                            if !exists {
-                                                
-                                                let bamiSoroUser = BamiSoroUser(firstName: firstName,
-                                                                        lastName: lastName,
-                                                                        email: email)
-                                                
-                                                DatabaseManager.shared.insertUser(with: bamiSoroUser,
-                                                                                  completion: { success in
-                                                                                    if success {
-                                                                                        // Upload image to Firebase
-                                                                                    }
-                                                                                  })
+        DatabaseManager.shared.userExists(
+            with: email,
+            completion: { exists in
+                if !exists {
+                    
+                    let bamiSoroUser = BamiSoroUser(firstName: firstName,
+                                                    lastName: lastName,
+                                                    email: email)
+                    
+                    DatabaseManager.shared.insertUser(
+                        with: bamiSoroUser,
+                        completion: { success in
+                            if success {
+                                // Upload image to Firebase
+                                
+                                if user.profile.hasImage {
+                                    guard let url = user.profile.imageURL(withDimension: 200) else {
+                                        return
+                                    }
+                                    
+                                    URLSession.shared.dataTask(
+                                        with: url,
+                                        completionHandler: { (data, _, _) in
+                                            guard let data = data else {
+                                                return
                                             }
-                                          })
+                                            let fileName = bamiSoroUser.profilePictureFileName
+                                            uploadProfilePictureToFirebase(with: data,
+                                                                           fileName: fileName)
+                                        }
+                                    ).resume()
+                                }
+                            }
+                        }
+                    )
+                }
+            })
         
         guard let authentication = user.authentication else {
             print("Missing auth object off from Google")

@@ -224,28 +224,22 @@ class RegisterViewController: UIViewController {
                                         lastName: lastName,
                                         email: email)
                 
-                DatabaseManager.shared.insertUser(with: bamiSoroUser,
-                                                  completion: { success in
-                                                    if success {
-                                                        // Upload picture to Firebase
-                                                        guard
-                                                            let image = strongSelf.imageView.image,
-                                                            let data = image.pngData() else {
-                                                            return
-                                                        }
-                                                        
-                                                        let fileName = bamiSoroUser.profilePictureFileName
-                                                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
-                                                            switch result {
-                                                            case .success(let downloadURL):
-                                                                UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
-                                                                print(downloadURL)
-                                                            case .failure(let error):
-                                                                print("Storage manager error: \(error)")
-                                                            }
-                                                        })
-                                                    }
-                                                  })
+                DatabaseManager.shared.insertUser(
+                    with: bamiSoroUser,
+                    completion: { success in
+                        if success {
+                            // Upload picture to Firebase
+                            guard
+                                let image = strongSelf.imageView.image,
+                                let data = image.pngData() else {
+                                return
+                            }
+                            
+                            let fileName = bamiSoroUser.profilePictureFileName
+                            uploadProfilePictureToFirebase(with: data, fileName: fileName)
+                        }
+                    }
+                )
                 
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             }

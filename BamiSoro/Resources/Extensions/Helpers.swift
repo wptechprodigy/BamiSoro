@@ -20,3 +20,16 @@ func setPlaceHolder(with text: String) -> NSAttributedString {
                                 NSAttributedString.Key.foregroundColor: UIColor.systemGray2
                               ])
 }
+
+/// Upload profile picture to Firebase 
+public func uploadProfilePictureToFirebase(with data: Data, fileName: String) {
+    StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: { result in
+        switch result {
+        case .success(let downloadURL):
+            UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
+            print(downloadURL)
+        case .failure(let error):
+            print("Storage manager error: \(error)")
+        }
+    })
+}
