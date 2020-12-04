@@ -241,7 +241,9 @@ extension LoginViewController: LoginButtonDelegate {
         }
         
         let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: FBGraphPath.graphPath,
-                                                         parameters: ["fields": "email, name"],
+                                                         parameters: [
+                                                            "fields": "email, first_name, last_name, picture.type(large)"
+                                                         ],
                                                          tokenString: token,
                                                          version: nil,
                                                          httpMethod: .get)
@@ -254,23 +256,52 @@ extension LoginViewController: LoginButtonDelegate {
             }
             
             guard
-                let name = result["name"] as? String,
-                let email = result["email"] as? String else {
+                let firstName = result["first_name"] as? String,
+                let lastName = result["last_name"] as? String,
+                let email = result["email"] as? String,
+                let picture = result["picture"] as? [String: Any],
+                let data = picture["data"] as? [String: Any],
+                let pictureURL = data["url"] as? String else {
                 print("Failed to get name and email from FB")
                 return
             }
             
-            let nameComponents = name.components(separatedBy: " ")
-            guard nameComponents.count == 2 else { return }
-            
-            let firstName = nameComponents[0]
-            let lastName = nameComponents[1]
-            
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {
-                    DatabaseManager.shared.insertUser(with: BamiSoroUser(firstName: firstName,
-                                                                         lastName: lastName,
-                                                                         email: email))
+                    let bamiSoroUser = BamiSoroUser(firstName: firstName,
+                                                    lastName: lastName,
+                                                    email: email)
+                    
+                    DatabaseManager.shared.insertUser(
+                        with: bamiSoroUser,
+                        completion: { success in
+                            if success {
+                                // Upload picture to Firebase
+                                guard let url = URL(string: pictureURL) else {
+                                    return
+                                }
+                                
+                                print("Downloading data from Facebook image")
+                                
+                                // Download data from FB image for profile
+                                URLSession.shared.dataTask(
+                                    with: url,
+                                    completionHandler: { (data, _, error) in
+                                        guard
+                                            let data = data,
+                                            error == nil else {
+                                            return
+                                        }
+                                        
+                                        let fileName = bamiSoroUser.profilePictureFileName
+                                        
+                                        print("Uploading profile picture to Firebase")
+                                        uploadProfilePictureToFirebase(with: data,
+                                                                       fileName: fileName)
+                                    }
+                                ).resume()
+                            }
+                        })
                 }
             })
         }

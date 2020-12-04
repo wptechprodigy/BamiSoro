@@ -11,6 +11,8 @@
 		0428BD6A2560357A00921626 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428BD692560357A00921626 /* DatabaseManager.swift */; };
 		0452258F257807BC00B6D33F /* Extension+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0452258E257807BC00B6D33F /* Extension+Notification.swift */; };
 		045225B92578E2D700B6D33F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045225B82578E2D700B6D33F /* ChatViewController.swift */; };
+		04522601257A463200B6D33F /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04522600257A463200B6D33F /* StorageManager.swift */; };
+		04522606257A630100B6D33F /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04522605257A630100B6D33F /* Extension+UITextField.swift */; };
 		04C786472555B37B003203E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786462555B37B003203E2 /* AppDelegate.swift */; };
 		04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C786482555B37B003203E2 /* SceneDelegate.swift */; };
 		04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C7864A2555B37B003203E2 /* ConversationsViewController.swift */; };
@@ -56,6 +58,8 @@
 		0428BD692560357A00921626 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		0452258E257807BC00B6D33F /* Extension+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Notification.swift"; sourceTree = "<group>"; };
 		045225B82578E2D700B6D33F /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		04522600257A463200B6D33F /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		04522605257A630100B6D33F /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		04C786432555B37B003203E2 /* BamiSoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BamiSoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C786462555B37B003203E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C786482555B37B003203E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,14 @@
 				0428BD692560357A00921626 /* DatabaseManager.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		045225FF257A460F00B6D33F /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				04522600257A463200B6D33F /* StorageManager.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		04C7863A2555B37B003203E2 = {
@@ -222,6 +234,7 @@
 		04C7868025569BB2003203E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				045225FF257A460F00B6D33F /* Storage */,
 				04C786462555B37B003203E2 /* AppDelegate.swift */,
 				04C786482555B37B003203E2 /* SceneDelegate.swift */,
 				0428BD682560356100921626 /* Database */,
@@ -262,6 +275,7 @@
 				04C786BB2556B7CE003203E2 /* Extension+UIView.swift */,
 				04DBBE9E256C2DA40079E5E0 /* Helpers.swift */,
 				0452258E257807BC00B6D33F /* Extension+Notification.swift */,
+				04522605257A630100B6D33F /* Extension+UITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -573,12 +587,14 @@
 				04C7864B2555B37B003203E2 /* ConversationsViewController.swift in Sources */,
 				04C786472555B37B003203E2 /* AppDelegate.swift in Sources */,
 				04C786A625569F13003203E2 /* ProfileViewController.swift in Sources */,
+				04522606257A630100B6D33F /* Extension+UITextField.swift in Sources */,
 				0428BD6A2560357A00921626 /* DatabaseManager.swift in Sources */,
 				04C786492555B37B003203E2 /* SceneDelegate.swift in Sources */,
 				04DBBE9F256C2DA40079E5E0 /* Helpers.swift in Sources */,
 				04C786BC2556B7CE003203E2 /* Extension+UIView.swift in Sources */,
 				045225B92578E2D700B6D33F /* ChatViewController.swift in Sources */,
 				04C7869425569E58003203E2 /* PhotoViewerViewController.swift in Sources */,
+				04522601257A463200B6D33F /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
