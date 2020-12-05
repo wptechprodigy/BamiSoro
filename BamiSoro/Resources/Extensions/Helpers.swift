@@ -33,3 +33,7 @@ public func uploadProfilePictureToFirebase(with data: Data, fileName: String) {
         }
     })
 }
+
+public func saveToUserDefault(forValue value: Any, withKey key: String) {
+    return UserDefaults.standard.setValue(value, forKey: key)
+}

@@ -70,3 +70,11 @@ enum SearchBarConstant {
     static let cancelSearch = "Cancel"
     static let noSearchResult = "Contact not found!"
 }
+
+enum UserDefaultConstant {
+    static let email = "email"
+}
+
+enum ProfilePictureConstant {
+    static let profilePictureSuffix = "_profile_picture.png"
+}

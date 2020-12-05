@@ -23,6 +23,62 @@ class ProfileViewController: UIViewController {
                            forCellReuseIdentifier: ProfileViewController.cellIdentifier)
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView.tableHeaderView = createTableHeader()
+    }
+    
+    func createTableHeader() -> UIView? {
+        guard let email = UserDefaults.standard.value(forKey: UserDefaultConstant.email) as? String else {
+            return nil
+        }
+        let safeEmail = DatabaseManager.safeEmail(email: email)
+        let filename = safeEmail + ProfilePictureConstant.profilePictureSuffix
+        let profilePicturePath = "images/" + filename
+        
+        let headerView = UIView(frame: CGRect(x: 0,
+                                        y: 0,
+                                        width: self.view.width,
+                                        height: 300))
+        headerView.backgroundColor = .link
+        let imageView = UIImageView(frame: CGRect(x: (headerView.width - 150) / 2,
+                                                  y: 75,
+                                                  width: 150,
+                                                  height: 150))
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 3
+        imageView.layer.cornerRadius = imageView.width / 2
+        imageView.layer.masksToBounds = true
+        
+        headerView.addSubview(imageView)
+        
+        StorageManager.shared.downloadURL(with: profilePicturePath, completion: { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            switch result {
+            case .success(let url):
+                // download the profile picture with the url
+                strongSelf.downloadProfilePicture(imageView: imageView, url: url)
+            case .failure(let error):
+                print("Failed to download profile picture with url: \(error)")
+            }
+        })
+        
+        return headerView
+    }
+    
+    func downloadProfilePicture(imageView: UIImageView, url: URL) {
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let profilePicture = UIImage(data: data)
+                imageView.image = profilePicture
+            }
+        }).resume()
     }
     
 }

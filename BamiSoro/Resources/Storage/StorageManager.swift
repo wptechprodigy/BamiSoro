@@ -51,4 +51,17 @@ extension StorageManager {
         case failedToUpload
         case failedToGetPictureDownloadURL
     }
+    
+    public func downloadURL(with path: String, completion: @escaping (Result<URL, Error>) -> Void) {
+        let reference = storage.child(path)
+        
+        reference.downloadURL(completion: { (url, error) in
+            guard let url = url, error == nil else {
+                completion(.failure(StorageErrors.failedToGetPictureDownloadURL))
+                return
+            }
+            
+            completion(.success(url))
+        })
+    }
 }
