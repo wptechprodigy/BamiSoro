@@ -58,15 +58,13 @@ extension DatabaseManager {
             self.database.child("users").observeSingleEvent(
                 of: .value,
                 with: { snapshot in
-                    
-                    let newElement = [
-                        "name": user.firstName + " " + user.lastName,
-                        "safe_email": user.safeEmail
-                    ]
-                    
                     // If the user collection has already been created
                     if var usersCollection = snapshot.value as? [[String: String]] {
-                        // Check if user already exists - important when logging in with FB and Google
+                        // TODO: - Check if user already exists - important when logging in with FB and Google
+                        let newElement = [
+                            "name": user.firstName + " " + user.lastName,
+                            "safe_email": user.safeEmail
+                        ]
                         // Append the user
                         usersCollection.append(newElement)
                         
@@ -80,9 +78,13 @@ extension DatabaseManager {
                             completion(true)
                         })
                     } else {
+                        let newElement = [
+                            "name": user.firstName + " " + user.lastName,
+                            "safe_email": user.safeEmail
+                        ]
                         // create the user collection and insert the new user
                         let newCollection: [[String: String]] = [newElement]
-
+                        
                         self.database.child("users").setValue(newCollection, withCompletionBlock: { (error, _) in
                             guard error == nil else {
                                 print("Failed to add new user to the new collection")
@@ -95,6 +97,22 @@ extension DatabaseManager {
                     }
                 })
         })
+    }
+    
+    /// Return all registered users
+    public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+        database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            
+            completion(.success(value))
+        })
+    }
+    
+    public enum DatabaseError: Error {
+        case failedToFetch
     }
 }
 
