@@ -52,8 +52,19 @@ class ConversationsViewController: UIViewController {
     
     @objc private func didTapComposeNewChat() {
         let newConversationViewController = NewConversationViewController()
+        newConversationViewController.completion = ({ [weak self] result in
+            print("\(result)")
+            self?.createNewConversation(result: result)
+        })
         let navigationController = UINavigationController(rootViewController: newConversationViewController)
         present(navigationController, animated: true, completion: nil)
+    }
+    
+    private func createNewConversation(result: [String: String]) {
+        let chatViewController = ChatViewController()
+        chatViewController.title = "Chat with \(result["name"] ?? "Friend")"
+        chatViewController.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(chatViewController, animated: true)
     }
      
     private func validateAuth() {

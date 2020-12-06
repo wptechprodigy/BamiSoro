@@ -54,7 +54,6 @@ class ProfileViewController: UIViewController {
         headerView.addSubview(imageView)
         
         StorageManager.shared.downloadURL(with: profilePicturePath, completion: { result in
-            
             switch result {
             case .success(let url):
                 // download the profile picture with the url
