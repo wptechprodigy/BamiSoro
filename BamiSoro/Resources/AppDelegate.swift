@@ -61,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return
         }
         
+        saveToUserDefault(forValue: email, withKey: "email")
+        
         // Does a user exists with the email?
         DatabaseManager.shared.userExists(
             with: email,

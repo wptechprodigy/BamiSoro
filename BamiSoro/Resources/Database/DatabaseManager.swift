@@ -13,6 +13,12 @@ final class DatabaseManager {
     static let shared = DatabaseManager()
     
     private let database = Database.database().reference()
+    
+    static func safeEmail(email: String) -> String {
+        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        return safeEmail
+    }
 }
 
 // MARK: - Database Management
@@ -49,8 +55,64 @@ extension DatabaseManager {
                 return
             }
             
-            completion(true)
+            self.database.child("users").observeSingleEvent(
+                of: .value,
+                with: { snapshot in
+                    // If the user collection has already been created
+                    if var usersCollection = snapshot.value as? [[String: String]] {
+                        // TODO: - Check if user already exists - important when logging in with FB and Google
+                        let newElement = [
+                            "name": user.firstName + " " + user.lastName,
+                            "safe_email": user.safeEmail
+                        ]
+                        // Append the user
+                        usersCollection.append(newElement)
+                        
+                        self.database.child("users").setValue(usersCollection, withCompletionBlock: { (error, _) in
+                            guard error == nil else {
+                                print("Failed to add new user to the new collection")
+                                completion(false)
+                                return
+                            }
+                            
+                            completion(true)
+                        })
+                    } else {
+                        let newElement = [
+                            "name": user.firstName + " " + user.lastName,
+                            "safe_email": user.safeEmail
+                        ]
+                        // create the user collection and insert the new user
+                        let newCollection: [[String: String]] = [newElement]
+                        
+                        self.database.child("users").setValue(newCollection, withCompletionBlock: { (error, _) in
+                            guard error == nil else {
+                                print("Failed to add new user to the new collection")
+                                completion(false)
+                                return
+                            }
+                            
+                            completion(true)
+                        })
+                    }
+                })
         })
+    }
+    
+    /// Return all registered users
+    public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+        database.child("users").observeSingleEvent(of: .value, with: { snapshot in
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            
+            completion(.success(value))
+        })
+    }
+    
+    public enum DatabaseError: Error {
+        case failedToFetch
     }
 }
 
