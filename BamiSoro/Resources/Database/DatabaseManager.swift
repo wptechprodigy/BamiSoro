@@ -55,7 +55,45 @@ extension DatabaseManager {
                 return
             }
             
-            completion(true)
+            self.database.child("users").observeSingleEvent(
+                of: .value,
+                with: { snapshot in
+                    
+                    let newElement = [
+                        "name": user.firstName + " " + user.lastName,
+                        "safe_email": user.safeEmail
+                    ]
+                    
+                    // If the user collection has already been created
+                    if var usersCollection = snapshot.value as? [[String: String]] {
+                        // Check if user already exists - important when logging in with FB and Google
+                        // Append the user
+                        usersCollection.append(newElement)
+                        
+                        self.database.child("users").setValue(usersCollection, withCompletionBlock: { (error, _) in
+                            guard error == nil else {
+                                print("Failed to add new user to the new collection")
+                                completion(false)
+                                return
+                            }
+                            
+                            completion(true)
+                        })
+                    } else {
+                        // create the user collection and insert the new user
+                        let newCollection: [[String: String]] = [newElement]
+
+                        self.database.child("users").setValue(newCollection, withCompletionBlock: { (error, _) in
+                            guard error == nil else {
+                                print("Failed to add new user to the new collection")
+                                completion(false)
+                                return
+                            }
+                            
+                            completion(true)
+                        })
+                    }
+                })
         })
     }
 }

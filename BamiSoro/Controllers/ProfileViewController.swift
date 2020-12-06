@@ -53,32 +53,27 @@ class ProfileViewController: UIViewController {
         
         headerView.addSubview(imageView)
         
-        StorageManager.shared.downloadURL(with: profilePicturePath, completion: { [weak self] result in
-            guard let strongSelf = self else { return }
+        StorageManager.shared.downloadURL(with: profilePicturePath, completion: { result in
             
             switch result {
             case .success(let url):
                 // download the profile picture with the url
-                strongSelf.downloadProfilePicture(imageView: imageView, url: url)
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
+                    guard let data = data, error == nil else {
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        let profilePicture = UIImage(data: data)
+                        imageView.image = profilePicture
+                    }
+                }).resume()
             case .failure(let error):
                 print("Failed to download profile picture with url: \(error)")
             }
         })
         
         return headerView
-    }
-    
-    func downloadProfilePicture(imageView: UIImageView, url: URL) {
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                let profilePicture = UIImage(data: data)
-                imageView.image = profilePicture
-            }
-        }).resume()
     }
     
 }
