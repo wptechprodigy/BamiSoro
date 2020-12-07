@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageKit
+import InputBarAccessoryView
 
 struct Message: MessageType {
     var sender: SenderType
@@ -22,31 +23,57 @@ struct Sender: SenderType {
 }
 
 class ChatViewController: MessagesViewController {
-    
+    public let otherUserEmail: String
+    public var isNewConversation = false
     private var messages = [Message]()
     
     private let selfSender = Sender(photoURL: "",
                                     senderId: "1",
                                     displayName: "Joe Allen")
-
+    
+    init(with email: String) {
+        self.otherUserEmail = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        messages.append(Message(sender: selfSender,
-                                messageId: "1",
-                                sentDate: Date(),
-                                kind: .text("Hello world message.")))
-        
-        messages.append(Message(sender: selfSender,
-                                messageId: "2",
-                                sentDate: Date(),
-                                kind: .text("This is the second message.")))
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        messageInputBar.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        messageInputBar.inputTextView.becomeFirstResponder()
     }
 
+}
+
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty  else {
+            return
+            
+        }
+        
+        print("\(text)")
+        
+        // Send message
+        if isNewConversation {
+            // create a new convo in the db
+            
+        } else {
+            // Append to an existing convo
+            
+        }
+    }
 }
 
 extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
